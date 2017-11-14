@@ -140,7 +140,7 @@ getTeamById(req, res) {
 putMembers(req, res, next) {
   console.log('Add members to team');
   req.team.addMembers(req.body.friendIds)
-    .then(res.send.bind(res))
+    .then(result => res.status(201).send(result))
     .catch(next);
 },
 
