@@ -13,6 +13,17 @@ Demo site to view friend requests, group subscriptions, team members join, etc.
 
 ## Sequelize Associations
 
+### Basic Business Goal
+- Users can send friend requests to other users. 
+- Users can create teams to which they can invite friends as members.
+- A user can view a list of: friends, teams(subscriptions), and each team's members.
+- Only friends can access to friends' profiles, and only members can access to their teams.
+
+### Design
+- User-to-Team relationship:  A user can create many teams(subscriptions), each containing many users(members).
+- User-to-User relationship:  A user(requester) can send a friend request to another user(requestee). If the requestee confirms, they will be friends.
+
+
 ### Models
 - User
 - Team
@@ -64,8 +75,7 @@ export default function(app, express, router) {
   router.put('/team/:teamId/members', teamsController.putMembers);
   router.get('/team/:teamId/members', teamsController.getMembers);
   router.get('/team/:teamId/member', teamsController.getMemberById);
-  router.put('/team/:teamId/subscription', teamsController.putSubscription);
-  router.get('/team/:teamId/subscription', teamsController.getSubscription);
+  ...
 }
 ```
 
@@ -157,20 +167,6 @@ getMembers(req, res, next) {
       });
       res.status(201).send(updated);
     })
-    .catch(next);
-},
-
-putSubscription(req, res, next) {
-  console.log('Subscribe trip to its team');
-  req.team.addTripSubscriptions(req.body.tripId)
-    .then(result => res.status(201).send(result))
-    .catch(next);
-},
-
-getSubscription(req, res, next) {
-  console.log('Get all trips in the team');
-  req.team.getTripSubscriptions()
-    .then(result => res.status(201).send(result))
     .catch(next);
 },
 ...
