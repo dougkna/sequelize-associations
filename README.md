@@ -11,6 +11,8 @@ BelongsTo, BelongsToMany found [here](http://docs.sequelizejs.com/class/lib/asso
 ## [Demo](https://gangpay.herokuapp.com/)
 Demo site to view friend requests, group subscriptions, team members join, etc.
 
+Also check out the [production site](https://ganpay.herokuapp.com/).
+
 ## Sequelize Associations
 
 ### Basic Business Goal
