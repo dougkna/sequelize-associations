@@ -14,7 +14,7 @@ Demo site to view friend requests, group subscriptions, team members join, etc.
 Also check out the [production site](https://ganpay.herokuapp.com/).
 
 ### (Demo GIF) Accepting Friends Requests
-<a href="https://imgflip.com/gif/23ex5j"><img src="https://i.imgflip.com/23ex5j.gif" title="made at imgflip.com"/></a>
+![acceptingreq](https://user-images.githubusercontent.com/22410733/35467612-b2fc82f8-02c5-11e8-9827-6b1df78c677a.gif)
 
 
 ## Sequelize Associations
